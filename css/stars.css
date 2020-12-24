@@ -53,6 +53,8 @@ a.link:hover::before {
 }
 body {
   background-size: 1342px auto;
+  background: linear-gradient(180deg, #E6EEF8 0%, rgba(230, 238, 248, 0) 100%) 0 0 no-repeat;
+  background-size: 100% 900px;
 }
 .table100,
 .strAnnounce {
@@ -201,24 +203,42 @@ textarea:focus {
 }
 .strSplash1 {
   position: relative;
-  background: url("../img/splash_1.png") 25% 100px no-repeat;
+}
+.strSplash1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 0;
+  z-index: 0;
+  background: url("../img/splash_1.png?n=1") right 180px no-repeat;
   background-size: contain;
-  background-size: 500px 502px;
+  background-size: 555px 549.5px;
 }
 @media screen and (max-width: 768px) {
-  .strSplash1 {
-    background: none;
+  .strSplash1::before {
+    display: none;
   }
 }
 .strSplash2 {
   position: relative;
-  padding-top: 80px;
-  background: url("../img/splash_2.png") 75% -100px no-repeat;
+  padding: 80px 0;
   background-size: contain;
-  background-size: 632px 548px;
+}
+.strSplash2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: url("../img/splash_2.png") 0 -75px no-repeat;
+  background-size: 632px 639px;
 }
 @media screen and (max-width: 768px) {
-  .strSplash2 {
+  .strSplash2::before {
     background: none;
   }
 }
@@ -241,7 +261,7 @@ textarea:focus {
   }
 }
 .strHero {
-  max-width: 1360px;
+  max-width: 1000px;
   box-sizing: content-box;
   padding: 0 1em;
   margin: 0 auto;
@@ -305,7 +325,6 @@ textarea:focus {
 .strAnnounce {
   padding: 40px 25px;
   box-sizing: border-box;
-  margin-bottom: 80px;
   position: relative;
   z-index: 10;
 }
@@ -327,6 +346,7 @@ textarea:focus {
   .strAnnounce__info {
     display: block;
     padding: 22px;
+    padding-bottom: 0;
   }
 }
 .strAnnounce__pic {
@@ -338,11 +358,7 @@ textarea:focus {
 }
 @media screen and (max-width: 768px) {
   .strAnnounce__pic {
-    display: block;
-    width: auto;
-    border-radius: 0 0 40px 40px;
-    overflow: hidden;
-    text-align: center;
+    display: none;
   }
 }
 .strAnnounce__text {
@@ -857,8 +873,8 @@ textarea:focus {
   padding: 0.75em 1em;
 }
 .strAlert {
-  text-align: center;
   padding: 40px;
+  text-align: center;
 }
 .strAlert__header {
   color: #9d00a1;
@@ -872,7 +888,6 @@ textarea:focus {
 .strAlert__text {
   font-size: 18px;
   line-height: 1.66666667;
-  text-align: center;
 }
 .strAlert__emo {
   width: 48px;
