@@ -53,8 +53,6 @@ a.link:hover::before {
 }
 body {
   background-size: 1342px auto;
-  background: linear-gradient(180deg, #E6EEF8 0%, rgba(230, 238, 248, 0) 100%) 0 0 no-repeat;
-  background-size: 100% 900px;
 }
 .table100,
 .strAnnounce {
