@@ -57,7 +57,8 @@ body {
   background-size: 100% 900px;
 }
 .table100,
-.strAnnounce {
+.strAnnounce,
+.strCopyright {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -922,4 +923,41 @@ textarea:focus {
 }
 .strOverlay.iShow {
   display: flex;
+}
+@media screen and (max-width: 768px) {
+  .strCopyright {
+    display: block;
+  }
+}
+.strCopyright__wfc {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding-left: 1em;
+}
+@media screen and (max-width: 768px) {
+  .strCopyright__wfc {
+    display: block;
+  }
+}
+.strCopyright__mmg {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 1em;
+}
+@media screen and (max-width: 768px) {
+  .strCopyright__mmg {
+    display: block;
+    text-align: left;
+    padding-left: 1em;
+  }
+}
+.strCopyright__mmg a {
+  transition: 0.3s ease all;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+.strCopyright__mmg a:hover {
+  color: #fff;
 }
