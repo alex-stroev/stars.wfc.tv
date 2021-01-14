@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html class="no-js" lang="ru-RU">
-   <head>
-      <meta charset="utf-8">
-      <title>
-         Стань лицом телеканала World Fashion Channel - запись на&nbsp;кастинг
-      </title>
-      <meta name="description" content="Телеканал WORLD FASHION в поиске новых звезд!">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-      <link rel="preconnect" href="https://fonts.gstatic.com">
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-      <!-- Place favicon.ico in the root directory -->
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <meta name="theme-color" content="#fafafa">
-      <!-- ============================================ -->
-      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-      <link rel="stylesheet" href="css/stars.css?n=1">
-   </head>
-   <body><header class="strHeader">
+<!-- $title = Стань лицом телеканала World Fashion Channel - запись на&nbsp;кастинг -->
+<!-- $bodyclass = "" -->
+<!-- @import "includes/__header.kit" -->
+<header class="strHeader">
    <!--  <a href="mailto:nkom@wfc.tv" class="link email">nkom@wfc.tv</a>-->
    <a href="https://www.instagram.com/worldfashionchannel/" class="wtlIcon insta" target="_blank"></a>
    <a href="https://vm.tiktok.com/bNKP7p/" class="wtlIcon tiktok" target="_blank"></a>
@@ -1240,86 +1224,4 @@
       </div>
    </div>
 </div>
-<footer class="strFooter">
-  <div class="strCopyright">
-      <div class="strCopyright__wfc">&copy; World Fashion Channel 2021</div>
-      <div class="strCopyright__mmg">Created by <a href="https://mercurymediagroup.ru/web-development/" target="_blank">Mercury Media Group</a></div>
-   </div>
-</footer>
-<!-- /.strFooter -->
-<div class="strOverlay">Пожалуйста, подождите</div>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script src="js/stars.js"></script>
-<script>
-    $('#wfc_form').on('submit', function (e) {
-        e.preventDefault();
-        $('.strOverlay').addClass('iShow');
-        //let $form = $(this);
-		var form = $('#wfc_form')[0];
-                var formData = new FormData(form);
-        $('.form_button').attr("disabled", true);
-        $.ajax({
-            cache: false,
-            url: $(this).attr('action'),
-            type: 'POST',
-            //dataType: 'json',
-            //data: $(this).serialize(),
-			     data: formData,
-                    processData: false,
-                    contentType: false,
-            success: function (data) {
-                $('.form-success').show();
-                $('.form-danger').hide();
-                // document.getElementById('wfc_form').reset();
-                //$('.form_button').removeAttr("disabled");
-                // $('#wfc_form input, #wfc_form select').attr("disabled", "disabled");
-                $('.strOverlay').removeClass('iShow');
-                $('#wfc_form').remove();
-                 $([document.documentElement, document.body]).animate({
-                    scrollTop: $(".iSuccess").offset().top - 100
-                  }, 500);
-            },
-            error: function (e) {
-                $('.form-success').hide();
-                $('.form-danger').show();
-                $('.form_button').removeAttr("disabled");
-                $('.strOverlay').removeClass('iShow');
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: $(".iDanger").offset().top - 100
-                  }, 500);
-            },
-            fail: function () {
-              // 
-              $('.strOverlay').removeClass('iShow');
-            }
-        });
-    });
-</script>
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(70686529, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        ecommerce:"dataLayer"
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/70686529" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W4K2CS9H1P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W4K2CS9H1P');
-</script>
-</body>
-</html>
+<!-- @import "includes/__footer.kit" -->

@@ -1,29 +1,25 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Лендинг поиска ведущих [https://stars.wfc.tv](https://stars.wfc.tv)
 
-### What is this repository for? ###
+## Сборка проекта ##
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Для сборки проекта используется утилита **Prepros** [https://prepros.io](https://prepros.io). Для запуска проекта достаточно перетащить папку с проектом в сборщик. Утилита условно-бесплатная (появляется несколько навязчивое всплывающее окно с предложением купить), но функционал доступен полностью. 
 
-### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+![Howto](__src/howto_prepros.png)
 
-### Contribution guidelines ###
+Конфигурация сборщика прописана в файле **prepros.config**. Файл ни в коему случае не удалять и не править вручную, правки вносятся самой утилитой, через GUI.
 
-* Writing tests
-* Code review
-* Other guidelines
+В *.gitignore* вообще ничего не прописывать, кроме папки *npm_modules*, если такая появится. Всё что есть, всё нужно.
 
-### Who do I talk to? ###
+ВНЕ папки **__src** ничего не править, ни стилей, ни скриптов, ни текстов.
 
-* Repo owner or admin
-* Other community or team contact
+## Технологии ##
+
+* Для *HTML* используется *KIT* [https://codekitapp.com/help/kit/](https://codekitapp.com/help/kit/)
+* Для *CSS* используется *LESS* [http://lesscss.org](http://lesscss.org)
+* *JS* бандлятся в один файл, кроме тех, что тянутся с CDN. Подробнее - [https://prepros.io/help/bundle-javascript](https://prepros.io/help/bundle-javascript)
+
+
+

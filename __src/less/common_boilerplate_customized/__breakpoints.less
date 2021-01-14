@@ -1,0 +1,46 @@
+/////////////////////////////////////////////////////////////
+//   BREAKPOINTS
+/////////////////////////////////////////////////////////////
+
+@tablet: ~"screen and (max-width: 1024px)";
+@mobile: ~"screen and (max-width: 768px)";
+@tiny : ~"screen and (max-width: 426px)";
+
+@pic_1920:  ~"screen and (max-width: 1920px)";
+@pic_1280:  ~"screen and (max-width: 1280px)";
+@pic_1280:  ~"screen and (max-width: 1280px)";
+@pic_1024:  ~"screen and (max-width: 1024px)";
+
+///////////////////////////////////////////////////////////////////////////////////////
+//  Вводим специальную переменную @toggle, на которой будет срабатывать триггер меню
+///////////////////////////////////////////////////////////////////////////////////////
+@toggle: @mobile;
+
+
+// body{
+//     &::before{
+//         // .debug_nfo;
+//         content: "";
+//         @media @desktop{
+//             content: "desktop";
+//         }
+//         @media @small{
+//             content: "small";        
+//         }
+//         @media @tablet{
+//             content: "tablet";       
+//         }
+//         @media @iportrait{
+//             content: "iportrait";       
+//         }
+//         @media @phablet{
+//             content: "phablet";        
+//         }
+//         @media @mobile{
+//             content: "mobile";        
+//         }
+//          @media @tiny{
+//             content: "tiny";        
+//         }
+//     }
+// }
