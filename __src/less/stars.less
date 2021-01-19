@@ -147,6 +147,8 @@ textarea {
     // &:extend(.table100 all);
     padding: 30px 60px 45px;
     text-align: right;
+    position: relative;
+    z-index: 10;
     a {
         display: inline-block;
         vertical-align: middle;
@@ -159,7 +161,7 @@ textarea {
     }
     @media @toggle {
         display: block;
-        padding: 20px 30px 20px;
+        padding: 34px 30px 20px;
         width: auto;
         float: right;
     }
@@ -371,7 +373,7 @@ textarea {
 .strAnnounce {
     @toggle: @mobile;
     &:extend(.table100 all);
-    padding: 40px 25px;
+    padding: 40px 25px 20px;
     box-sizing: border-box;
     position: relative;
     z-index: 10;
@@ -434,6 +436,33 @@ textarea {
         font-style: italic;
         @media @toggle {
             display: inline;
+        }
+    }
+}
+
+.strAddAnnounce {
+    font-size: 14px;
+    line-height: 35/14;
+    ul {
+        margin: 0;
+        padding: 0 0 0 3em;
+        list-style: none;
+        @media @mobile {
+            padding-left: 18px;
+            padding-right: 1em;
+        }
+        li {
+            position: relative;
+            padding-left: 2em;
+            &::before {
+                content: "\2022";
+                position: absolute;
+                left: 0;
+                top: -1/5em;
+                font-size: 3em;
+                line-height: 1;
+                color: @violet;
+            }
         }
     }
 }
