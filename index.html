@@ -1224,7 +1224,7 @@
             <div class="strGrid__item"><input type="text" name="phone" placeholder="Номер телефона*" required></div>
             <div class="strGrid__item"><input type="submit" class="formSubmit" value="Отправить заявку"></div>
          </div>
-         <div class="strForm__agreement"><label><input type="checkbox" required><span></span></label>Я&nbsp;подтверждаю свое согласие <span class="nowrap">с&nbsp;<a href="https://wfc.tv/ru/p/policy" class="link" target="_blank">политикой конфиденциальности</a>,</span> <a href="https://wfc.tv/ru/p/policy" class="link" target="_blank">политикой обработки персональных данных</a> и&nbsp;получением рекламы</div>
+         <div class="strForm__agreement"><label><input type="checkbox" required><span></span></label>Я&nbsp;подтверждаю свое согласие <span class="nowrap">с&nbsp;<a href="https://wfc.tv/ru/p/policy" class="link" target="_blank">политикой конфиденциальности</a>,</span> <a href="https://wfc.tv/ru/p/policy" class="link" target="_blank">политикой обработки персональных данных</a> и&nbsp;получением рекламы <br>Возникли вопросы? Пиши на <a href="mailto:mkir@wfc.tv" class="link">mkir@wfc.tv</a></div>
       </form>
       <div class="alert alert-success form-success strAlert iSuccess" style="display: none;" role="alert">
          <div class="strAlert__header">Твоя анкета отправлена <span class="strAlert__emo iGood"></span></div>
@@ -1280,6 +1280,7 @@
         $.ajax({
             cache: false,
             url: $(this).attr('action'),
+           timeout: 300000,
             type: 'POST',
             //dataType: 'json',
             //data: $(this).serialize(),

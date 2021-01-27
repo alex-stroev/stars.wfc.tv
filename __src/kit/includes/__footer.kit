@@ -19,6 +19,7 @@
         $.ajax({
             cache: false,
             url: $(this).attr('action'),
+           timeout: 300000,
             type: 'POST',
             //dataType: 'json',
             //data: $(this).serialize(),

@@ -31,17 +31,16 @@ $(document).ready(function () {
     //   Трюк с ДР
     ////////////////////////////////////////////////////////////////
 
-    var bday = $("input[name='birthday']");
-    bday.on('focus', function (event) {
+     var bday = $("input[name='birthday']");
+    bday.on('focus touchstart', function (event) {
         var $this = $(this);
         $this.get(0).type = 'date';
     });
-    bday.on('blur', function (event) {
+    bday.on('blur touchend', function (event) {
         var $this = $(this);
         if ($this.val() === "") {
             $this.get(0).type = 'text';
         }
-
     });
 
     ////////////////////////////////////////////////////////////////
