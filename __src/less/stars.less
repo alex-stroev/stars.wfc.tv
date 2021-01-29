@@ -711,8 +711,16 @@ textarea {
         font-size: .7em;
         bottom: 10px;
         left: 60px;
+        @media @tablet {
+            top: 72%;
+            bottom: auto;
+        }
         @media @mobile {
-            left: 0;
+            left: 10px;
+        }
+        @media @tiny {
+            bottom: auto;
+            top: 65%;
         }
     }
 }
