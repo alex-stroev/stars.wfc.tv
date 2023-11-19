@@ -1,5 +1,4 @@
 require('../plugins/jquery_mask_plugin/jquery.mask.js');
-let form = document.getElementById('form')
 $(document).ready(function () {
     ////////////////////////////////////////////////////////////////
     // 
@@ -163,5 +162,95 @@ $(document).ready(function () {
     // end ready
 });
 
+
+////////////////////////////////////////////////////////////////
+//  Отправка формы
+////////////////////////////////////////////////////////////////
+
+var
+    jsOverlay = $(".jsOverlay"),
+    successMessage = $(".jsAlert.iSuccess"),
+    dangerMessage = $(".jsAlert.iDanger"),
+    formURL = $('#wfc_form').attr('action');
+
+
+$('#wfc_form').on('submit', function (e) {
+    e.preventDefault();
+    var
+        form = $('#wfc_form')[0],
+        formData = new FormData(form),
+        cachedInitFormData = new FormData(form); // кэшируем изначальные данные формы, точнее, создаем отдельный экземпляр
+
+
+    // cachedInitFormData.set("last_name", "TEST_REPEAT") // test string
+    cachedInitFormData.delete("files[]") // удаляем поле "файлы"
+
+    jsOverlay.addClass('iShow');
+
+    $.ajax({
+            cache: false,
+            url: formURL,
+            timeout: 300000,
+            type: 'POST',
+            data: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            processData: false,
+            contentType: false
+        })
+        ////////////////////////////////////////////////////////////////
+        //  НЕУСПЕШНАЯ ОТПРАВКА - повторно отправляем форму БЕЗ картинок
+        ////////////////////////////////////////////////////////////////
+        .fail(function (e) {
+            $.ajax({
+                    cache: false,
+                    url: formURL,
+                    timeout: 300000,
+                    type: 'POST',
+                    data: cachedInitFormData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    processData: false,
+                    contentType: false
+                })
+                .done(showGoodSending)
+                .fail(showBadSending)
+        })
+        ////////////////////////////////////////////////////////////////
+        //  успешная отправка
+        ////////////////////////////////////////////////////////////////
+        .done(showGoodSending)
+    ////////////////////////////////////////////////////////////////
+    //  неуспешная отправка - нормальное поведение, вывод ошибки
+    //  Раскомментировать, если первый кейс не понадобится
+    ////////////////////////////////////////////////////////////////
+    // .fail(showBadSending)
+    ////////////////////////////////////////////////////////////////
+    //  Выполняется всегда - пока ничего не выполняется
+    ////////////////////////////////////////////////////////////////
+    // .always();
+});
+
+
+function showGoodSending(data) {
+    successMessage.show();
+    jsOverlay.removeClass('iShow');
+    $('#wfc_form').remove();
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".iSuccess").offset().top - 100
+    }, 500);
+    // console.log("Стандартное подтверждение успеха")
+}
+
+function showBadSending(data) {
+    dangerMessage.show();
+    jsOverlay.removeClass('iShow');
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".iDanger").offset().top - 150
+    }, 500);
+    // console.log("Стандартное подтверждение неудачи")
+}
 
 /////////////////////////////////////////////////////
